@@ -1,5 +1,6 @@
 import speedtest
 import schedule
+import time
 
 s = speedtest.Speedtest()
 
