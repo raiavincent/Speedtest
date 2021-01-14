@@ -5,16 +5,16 @@ s = speedtest.Speedtest()
 
 megabit = 1000000
 
-defGetInternetSpeed():
+def GetInternetSpeed():
     print('Getting your speeds, hot rod.')
     download = s.download()
     upload = s.upload()
-    downloadMbps = download/megabit
-    uploadMbps = upload/megabit
+    downloadMbps = round(download/megabit,1)
+    uploadMbps = round(upload/megabit,1)
     print('My download speed is:', downloadMbps)
     print('My upload speed is:', uploadMbps)
 
-schedule.every(15).minutes.do(job)
+schedule.every(15).minutes.do(GetInternetSpeed)
 
 while True:
     schedule.run_pending()
