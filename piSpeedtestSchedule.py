@@ -32,7 +32,6 @@ def getSpeeds():
     print('My download speed is:', downloadMbps,'Mbps.')
     print('My upload speed is:', uploadMbps,'Mbps.')
 
-    # speedDict['Now'] = now # considering dropping bc a) it gets truncated and b) its not entirely necessary
     speedDict['Time'] = currentTime
     speedDict['Month'] = currentMonth
     speedDict['Weekday'] = dayOfWeek
