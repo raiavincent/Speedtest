@@ -2,6 +2,7 @@ import speedtest
 from datetime import datetime
 import pandas as pd
 
+
 s = speedtest.Speedtest()
 
 megabit = 1000000
@@ -26,7 +27,6 @@ print(currentYear)
 currentHour = now.hour
 print(currentHour)
 
-
 print('Getting your speeds, hot rod.')
 download = s.download()
 upload = s.upload()
@@ -35,10 +35,11 @@ uploadMbps = round(upload/megabit,1)
 print('My download speed is:', downloadMbps,'Mbps.')
 print('My upload speed is:', uploadMbps,'Mbps.')
 
+# speedDict['Now'] = now # considering dropping bc a) it gets truncated and b) its not entirely necessary
 speedDict['Time'] = currentTime
 speedDict['Month'] = currentMonth
 speedDict['Weekday'] = dayOfWeek
-speedDict['Day'] = dayOfMonth # possibly find a better key for this
+speedDict['Day'] = dayOfMonth 
 speedDict['Year'] = currentYear
 speedDict['Hour'] = currentHour
 speedDict['Download'] = downloadMbps
@@ -49,3 +50,5 @@ speedColumns = ['Time','Month','Weekday','Day','Year','Hour','Download','Upload'
 df = pd.DataFrame(columns=speedColumns)
 df = df.append(speedDict,ignore_index=True)
 print(df)
+
+df.to_csv('Test file.csv')
