@@ -49,7 +49,7 @@ def getSpeeds():
     df.to_csv('Speeds as of ' + dateString + '.csv')
     print('Speeds gathered, dataframe updated, saved to csv.')
 
-schedule.every().minute.at(":15").do(getSpeeds)
+schedule.every(15).minutes.do(getSpeeds)
 
 while True:
     schedule.run_pending()
