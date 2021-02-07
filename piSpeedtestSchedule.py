@@ -44,7 +44,9 @@ def getSpeeds():
     global df
     df = df.append(speedDict,ignore_index=True)
 
-    df.to_csv('Test file.csv')
+    dateString = datetime.strftime(datetime.now(), '%Y_%m_%d')
+
+    df.to_csv('Speeds as of ' + dateString + '.csv')
     print('Speeds gathered, dataframe updated, saved to csv.')
 
 schedule.every().minute.at(":15").do(getSpeeds)
